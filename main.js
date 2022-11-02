@@ -17,3 +17,16 @@ async function led1(e) {
   document.getElementById("monitor").innerHTML = msg;
 }
 
+async function soil(e){
+  const data = {
+    "info" : "my cock is very big"
+  }
+  msg = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+}
+
