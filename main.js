@@ -22,7 +22,7 @@ async function soil(e){
     "info" : "my cock is very big"
   }
   msg = await fetch(url, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
