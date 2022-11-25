@@ -5,16 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farm Managment</title>
-    <script src="main.js"></script>
 </head>
 <body>
-    <div id="tools">
-        <label for="led1">LED</label>
-        <button id="led1" onclick="led1(this)">OFF</button>
-        <label for="soil">Soil</label>
-        <button id="soil" onclick="soil(this)">number</button>
+    <h2>Monitor</h2>
+    <div id="monitorcontainer" style="height: 250px;">
+        <div id="monitor"></div>
     </div>
-    <div id="monitor"></div>
-    <div id="log"></div>
+    <h2>Log</h2>
+    <div id="logcontainer" style="height: 150px; overflow-y: scroll;">
+        <div id="log"></div>
+    </div>
+    <h2>Tools</h2>
+    <div id="tools">
+        <label for="address">Address</label>
+        <input type="text" id="address" onchange="onAddresschange();" onkeyup="onAddresschange();">
+        <br>
+        <button onclick="clearlog()">clear log</button>
+        <br>
+        <button onclick="root();">get /</button>
+        <br>
+        <button onclick="reqtest();">post /reqtest</button>
+        <br>
+        <button onclick="localip();">get /localip</button>
+        <button onclick="publicip();">get /publicip</button>
+        <br>
+        <button onclick="getnest();">get /nest</button>
+        <label for="nestlow">low</label>
+        <input type="number" name="low" id="nestlow" step="1" pattern="\d+" onchange="this.value = parseInt(this.value);"> 
+        <label for="nesthigh">high</label>
+        <input type="number" name="high" id="nesthigh" step="1" pattern="\d+" onchange="this.value = parseInt(this.value);"> 
+        <button onclick="setnest();">set /nest</button>
+        <br>
+        <button onclick="getlight();">get /light</button>
+        <button onclick="setlighton();">post /light on</button>
+        <button onclick="setlightoff();">post /light off</button>
+        <label for="starttime">Start</label>
+        <input type="time" name="starttime" id="sunstart" onchange="onsuninputchange();">
+        <label for="stoptime">Stop</label>
+        <input type="time" name="stoptime" id="sunstop" onchange="onsuninputchange();">
+        <button onclick="setlightroutine();">set light daily routine</button>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
